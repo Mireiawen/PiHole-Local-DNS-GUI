@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+PIHOLE_USER="${PIHOLE_USER:-"www-data"}"
+
 # Verify the directory
 ADMIN_DIR="${ADMIN_DIR:-"/var/www/html/admin"}"
 if [ ! -d "${ADMIN_DIR}" ]
@@ -18,6 +20,7 @@ mkdir --parents \
 if [ ! -f '/etc/pihole/lan.list' ]
 then
 	echo "127.0.0.1 pihole.local pihole" >'/etc/pihole/lan.list'
+	chown "${PIHOLE_USER}" '/etc/pihole/lan.list'
 fi
 
 # Create the configuration file
