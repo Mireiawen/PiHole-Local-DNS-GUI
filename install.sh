@@ -21,7 +21,7 @@ then
 fi
 
 # Create the configuration file
-echo 'add-hosts=/etc/pihole/lan.list' >'/etc/dnsmasq.d/02-lan.conf'
+echo 'addn-hosts=/etc/pihole/lan.list' >'/etc/dnsmasq.d/02-lan.conf'
 
 # Copy the local DNS panel page
 cp "local_dns.php" "${ADMIN_DIR}/local_dns.php"
